@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useTransition } from 'react';
@@ -13,7 +14,7 @@ import RecipeCard from '@/components/recipes/RecipeCard';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Clipboard, ExternalLink, Loader2, Info, ChevronDown } from 'lucide-react';
-import { Link, usePathname } from '@/navigation';
+import { Link, usePathname, useRouter } from '@/navigation';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 
 type AdminDashboardProps = {
@@ -25,7 +26,6 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
   const t = useTranslations('AdminPage');
   const format = useFormatter();
   const locale = useLocale();
-  const pathname = usePathname();
   const { toast } = useToast();
 
   const [recipes, setRecipes] = useState<MealieRecipeSummary[]>([]);
@@ -36,10 +36,6 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
   
   const [isFetchingRecipes, startFetchingRecipes] = useTransition();
   const [isCreatingPoll, startCreatingPoll] = useTransition();
-
-  useEffect(() => {
-    fetchRecipes();
-  }, []);
 
   useEffect(() => {
     fetchRecipes();
@@ -112,7 +108,7 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
       const cat = initialCategories.find(c => c.slug === selectedCategories[0]);
       return cat?.name ?? t('filterByCategory');
     }
-    return `${selectedCategories.length} categories selected`;
+    return t('categoriesSelected', {count: selectedCategories.length});
   }
 
   return (

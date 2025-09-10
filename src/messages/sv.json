@@ -1,3 +1,4 @@
+
 {
   "HomePage": {
     "title": "MealVote",
@@ -17,6 +18,7 @@
     "description": "Skapa och hantera dina måltidsomröstningar.",
     "selectRecipes": "Välj recept",
     "filterByCategory": "Filtrera efter kategori",
+    "categoriesSelected": "{count} kategorier valda",
     "allCategories": "Alla kategorier",
     "noRecipes": "Inga recept hittades. Kontrollera din Mealie-anslutning eller filter.",
     "noCategories": "Inga kategorier hittades",

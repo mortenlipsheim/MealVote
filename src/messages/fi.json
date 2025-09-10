@@ -1,3 +1,4 @@
+
 {
   "HomePage": {
     "title": "MealVote",
@@ -17,6 +18,7 @@
     "description": "Luo ja hallinnoi ateriakyselyitäsi.",
     "selectRecipes": "Valitse reseptejä",
     "filterByCategory": "Suodata luokan mukaan",
+    "categoriesSelected": "{count} luokkaa valittu",
     "allCategories": "Kaikki luokat",
     "noRecipes": "Reseptejä ei löytynyt. Tarkista Mealie-yhteytesi tai suodattimet.",
     "noCategories": "Luokkia ei löytynyt",

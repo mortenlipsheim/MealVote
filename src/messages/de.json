@@ -1,3 +1,4 @@
+
 {
   "HomePage": {
     "title": "MealVote",
@@ -17,6 +18,7 @@
     "description": "Erstelle und verwalte deine Essensumfragen.",
     "selectRecipes": "Rezepte auswählen",
     "filterByCategory": "Nach Kategorie filtern",
+    "categoriesSelected": "{count} Kategorien ausgewählt",
     "allCategories": "Alle Kategorien",
     "noRecipes": "Keine Rezepte gefunden. Überprüfe deine Mealie-Verbindung oder Filter.",
     "noCategories": "Keine Kategorien gefunden",

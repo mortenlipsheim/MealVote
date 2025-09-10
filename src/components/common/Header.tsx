@@ -1,5 +1,6 @@
+
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { Button } from '@/components/ui/button';
 import { UtensilsCrossed } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';

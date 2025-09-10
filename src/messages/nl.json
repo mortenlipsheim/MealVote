@@ -1,3 +1,4 @@
+
 {
   "HomePage": {
     "title": "MealVote",
@@ -17,6 +18,7 @@
     "description": "Maak en beheer je maaltijdpeilingen.",
     "selectRecipes": "Selecteer recepten",
     "filterByCategory": "Filter op categorie",
+    "categoriesSelected": "{count} categorieën geselecteerd",
     "allCategories": "Alle categorieën",
     "noRecipes": "Geen recepten gevonden. Controleer je Mealie-verbinding of filters.",
     "noCategories": "Geen categorieën gevonden",

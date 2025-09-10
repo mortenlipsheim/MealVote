@@ -1,3 +1,4 @@
+
 {
   "HomePage": {
     "title": "MealVote",
@@ -17,6 +18,7 @@
     "description": "Opprett og administrer måltidsavstemningene dine.",
     "selectRecipes": "Velg oppskrifter",
     "filterByCategory": "Filtrer etter kategori",
+    "categoriesSelected": "{count} kategorier valgt",
     "allCategories": "Alle kategorier",
     "noRecipes": "Ingen oppskrifter funnet. Sjekk Mealie-tilkoblingen eller filtrene dine.",
     "noCategories": "Ingen kategorier funnet",

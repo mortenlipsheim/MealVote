@@ -1,3 +1,4 @@
+
 import { getPoll } from '@/lib/polls';
 import { getRecipe, MealieRecipeSummary } from '@/lib/mealie';
 import { notFound } from 'next/navigation';
@@ -60,6 +61,9 @@ export default async function VotePage({ params }: Props) {
                     })}
                 </div>
             </div>
+             <Button asChild className="mt-8">
+                <Link href="/">Go Home</Link>
+            </Button>
         </div>
     )
   }
