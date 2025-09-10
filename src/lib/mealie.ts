@@ -1,3 +1,4 @@
+
 const MEALIE_URL = process.env.MEALIE_API_URL;
 const MEALIE_TOKEN = process.env.MEALIE_API_TOKEN;
 
@@ -18,20 +19,19 @@ export interface MealieCategory {
   slug: string;
 }
 
-const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}/api` : '';
+const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}` : '';
 
 async function mealieFetch(endpoint: string) {
   if (!MEALIE_API_BASE_URL || !MEALIE_TOKEN) {
     if (process.env.NODE_ENV === 'development') {
       console.warn('Mealie API URL or Token is not configured. Please check your .env.local file.');
-      // Return a structure that looks like the API response for `items`
       return { items: [] }; 
     }
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
 
   const url = `${MEALIE_API_BASE_URL}${endpoint}`;
-
+  
   const res = await fetch(url, {
     headers: {
       'Authorization': `Bearer ${MEALIE_TOKEN}`
@@ -55,15 +55,24 @@ function getImageUrl(recipeId: string): string {
     return `${MEALIE_URL.replace(/\/$/, '')}/api/media/recipes/${recipeId}/images/original.webp`;
 }
 
+
 export async function getRecipes(options?: { categories?: string[] }): Promise<MealieRecipeSummary[]> {
   try {
-    let endpoint = '/recipes?perPage=999';
-    if (options?.categories && options.categories.length > 0) {
-      const categoryFilter = options.categories.map(slug => `&filter[categories.slug]=${slug}`).join('');
-      endpoint += categoryFilter;
-    }
+    const endpoint = '/api/recipes?perPage=999';
     const data = await mealieFetch(endpoint);
-    return data.items.map((item: any) => ({
+    
+    let filteredItems = data.items;
+
+    if (options?.categories && options.categories.length > 0) {
+      filteredItems = data.items.filter((item: any) => 
+        item.recipeCategory && item.recipeCategory.length > 0 &&
+        options.categories!.some(catSlug => 
+          item.recipeCategory.some((rc: any) => rc.slug === catSlug)
+        )
+      );
+    }
+      
+    return filteredItems.map((item: any) => ({
       id: item.id,
       name: item.name,
       slug: item.slug,
@@ -79,7 +88,7 @@ export async function getRecipes(options?: { categories?: string[] }): Promise<M
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/organizers/categories?perPage=999');
+    const data = await mealieFetch('/api/organizers/categories?perPage=999');
     return data.items.map((item: any) => ({
         id: item.id,
         name: item.name,
@@ -93,7 +102,7 @@ export async function getCategories(): Promise<MealieCategory[]> {
 
 export async function getRecipe(id: string): Promise<MealieRecipe | null> {
     try {
-        const item = await mealieFetch(`/recipes/${id}`);
+        const item = await mealieFetch(`/api/recipes/${id}`);
         if (!item) return null;
         return {
           id: item.id,
