@@ -23,7 +23,7 @@ async function mealieFetch(endpoint: string) {
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
 
-  const res = await fetch(`${MEALIE_URL}/api${endpoint}`, {
+  const res = await fetch(`${MEALIE_URL}${endpoint}`, {
     headers: {
       'Authorization': `Bearer ${MEALIE_TOKEN}`
     },
@@ -41,7 +41,7 @@ async function mealieFetch(endpoint: string) {
 
 export async function getRecipes(options?: { category?: string }): Promise<MealieRecipeSummary[]> {
   try {
-    let endpoint = '/recipes?perPage=999';
+    let endpoint = '/api/recipes?perPage=999';
     if (options?.category) {
       // Correct query parameter for filtering by category slug in recent Mealie versions
       endpoint += `&filter[recipeCategories.slug]=${options.category}`;
@@ -63,7 +63,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/recipe-categories?perPage=999');
+    const data = await mealieFetch('/api/recipe-categories?perPage=999');
     return data.items;
   } catch (error) {
     console.error('Error fetching Mealie categories:', error);
@@ -73,7 +73,7 @@ export async function getCategories(): Promise<MealieCategory[]> {
 
 export async function getRecipe(id: string): Promise<MealieRecipe | null> {
     try {
-        const item = await mealieFetch(`/recipes/${id}`);
+        const item = await mealieFetch(`/api/recipes/${id}`);
         return {
           id: item.id,
           name: item.name,
