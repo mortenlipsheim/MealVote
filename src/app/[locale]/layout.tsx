@@ -4,7 +4,14 @@ import { getMessages } from 'next-intl/server';
 import { Toaster } from "@/components/ui/toaster";
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
+import { Alegreya } from 'next/font/google';
 import '../globals.css';
+
+const alegreya = Alegreya({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-alegreya',
+});
 
 export const metadata: Metadata = {
   title: 'MealVote',
@@ -21,12 +28,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="h-full">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-      </head>
+    <html lang={locale} className={`${alegreya.variable} h-full`}>
       <body className="font-body antialiased bg-background text-foreground h-full">
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
