@@ -51,13 +51,13 @@ async function mealieFetch(endpoint: string) {
   return res.json();
 }
 
-function getImageUrl(imagePath: string): string {
-    if (!MEALIE_API_BASE_URL || !imagePath) {
+function getImageUrl(recipeId: string): string {
+    if (!MEALIE_API_BASE_URL || !recipeId) {
         // Return a placeholder if the URL or filename is missing
         return 'https://placehold.co/600x400?text=No+Image';
     }
     // The imagePath from the API needs to be appended to the media endpoint
-    return `${MEALIE_API_BASE_URL}/media/recipes/${imagePath}`;
+    return `${MEALIE_API_BASE_URL}/media/recipes/${recipeId}/images/original.webp`;
 }
 
 export async function getRecipes(options?: { category?: string }): Promise<MealieRecipeSummary[]> {
@@ -71,8 +71,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
       id: item.id,
       name: item.name,
       slug: item.slug,
-      // Use the 'id' and 'image' properties to construct the correct URL
-      image: getImageUrl(`${item.id}/images/${item.image}`),
+      image: getImageUrl(item.id),
       description: item.description || 'No description available.',
       recipeCategory: item.recipeCategory,
     }));
@@ -104,7 +103,7 @@ export async function getRecipe(id: string): Promise<MealieRecipe | null> {
           id: item.id,
           name: item.name,
           slug: item.slug,
-          image: getImageUrl(`${item.id}/images/${item.image}`),
+          image: getImageUrl(item.id),
           description: item.description || 'No description available.',
           recipeCategory: item.recipeCategory,
         };
