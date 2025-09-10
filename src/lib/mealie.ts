@@ -1,3 +1,4 @@
+
 const MEALIE_URL = process.env.MEALIE_API_URL;
 const MEALIE_TOKEN = process.env.MEALIE_API_TOKEN;
 
@@ -23,7 +24,10 @@ async function mealieFetch(endpoint: string) {
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
 
-  const res = await fetch(`${MEALIE_URL}${endpoint}`, {
+  // Construct the full URL, ensuring no double slashes
+  const url = `${MEALIE_URL.replace(/\/$/, '')}${endpoint}`;
+
+  const res = await fetch(url, {
     headers: {
       'Authorization': `Bearer ${MEALIE_TOKEN}`
     },
@@ -43,7 +47,6 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
   try {
     let endpoint = '/api/recipes?perPage=999';
     if (options?.category) {
-      // Correct query parameter for filtering by category slug in recent Mealie versions
       endpoint += `&filter[recipeCategories.slug]=${options.category}`;
     }
     const data = await mealieFetch(endpoint);
@@ -51,7 +54,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
       id: item.id,
       name: item.name,
       slug: item.slug,
-      image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/${item.image}`,
+      image: `${MEALIE_URL.replace(/\/$/, '')}/api/media/recipes/${item.id}/images/${item.image}`,
       description: item.description || 'No description available.',
       recipeCategory: item.recipeCategory,
     }));
@@ -64,7 +67,11 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
     const data = await mealieFetch('/api/recipe-categories?perPage=999');
-    return data.items;
+    return data.items.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+        slug: item.slug,
+    }));
   } catch (error) {
     console.error('Error fetching Mealie categories:', error);
     return [];
@@ -78,7 +85,7 @@ export async function getRecipe(id: string): Promise<MealieRecipe | null> {
           id: item.id,
           name: item.name,
           slug: item.slug,
-          image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/${item.image}`,
+          image: `${MEALIE_URL.replace(/\/$/, '')}/api/media/recipes/${item.id}/images/${item.image}`,
           description: item.description || 'No description available.',
           recipeCategory: item.recipeCategory,
         };
