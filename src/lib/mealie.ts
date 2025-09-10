@@ -20,7 +20,7 @@ export interface MealieCategory {
 }
 
 // Consistently construct the base URL for all API calls
-const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}/api` : '';
+const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}` : '';
 
 
 async function mealieFetch(endpoint: string) {
@@ -57,12 +57,12 @@ function getImageUrl(recipeId: string): string {
         return 'https://placehold.co/600x400?text=No+Image';
     }
     // The imagePath from the API needs to be appended to the media endpoint
-    return `${MEALIE_API_BASE_URL}/media/recipes/${recipeId}/images/original.webp`;
+    return `${MEALIE_API_BASE_URL}/api/media/recipes/${recipeId}/images/original.webp`;
 }
 
 export async function getRecipes(options?: { category?: string }): Promise<MealieRecipeSummary[]> {
   try {
-    let endpoint = '/recipes?perPage=999';
+    let endpoint = '/api/recipes?perPage=999';
     if (options?.category) {
       endpoint += `&filter[categories.slug]=${options.category}`;
     }
@@ -83,7 +83,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/recipe-categories?perPage=999');
+    const data = await mealieFetch('/api/recipe-categories');
     return data.items.map((item: any) => ({
         id: item.id,
         name: item.name,
@@ -97,7 +97,7 @@ export async function getCategories(): Promise<MealieCategory[]> {
 
 export async function getRecipe(id: string): Promise<MealieRecipe | null> {
     try {
-        const item = await mealieFetch(`/recipes/${id}`);
+        const item = await mealieFetch(`/api/recipes/${id}`);
         if (!item) return null;
         return {
           id: item.id,
