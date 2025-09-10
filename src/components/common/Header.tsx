@@ -5,11 +5,7 @@ import { Button } from '@/components/ui/button';
 import { UtensilsCrossed } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
-type HeaderProps = {
-  variant?: 'default' | 'simple';
-};
-
-export default async function Header({ variant = 'default' }: HeaderProps) {
+export default async function Header() {
   const t = await getTranslations('Header');
 
   return (
@@ -19,14 +15,12 @@ export default async function Header({ variant = 'default' }: HeaderProps) {
           <UtensilsCrossed className="w-6 h-6 text-primary" />
           <span>{t('title')}</span>
         </Link>
-        {variant === 'default' && (
-          <nav className="flex items-center gap-2 sm:gap-4">
+        <nav className="flex items-center gap-2 sm:gap-4">
             <Button variant="ghost" asChild>
               <Link href="/admin">{t('adminLink')}</Link>
             </Button>
             <LanguageSwitcher />
-          </nav>
-        )}
+        </nav>
       </div>
     </header>
   );

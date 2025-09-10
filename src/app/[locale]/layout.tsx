@@ -12,16 +12,16 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // This layout will now be used by all pages except the vote page
-  // which has its own layout.
   const messages = await getMessages();
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
         <div className="flex flex-col min-h-screen">
-          <main className="flex-grow container mx-auto px-4 py-8">
-            {children}
-          </main>
+            <Header />
+            <main className="flex-grow container mx-auto px-4 py-8">
+                {children}
+            </main>
+            <Footer />
         </div>
       <Toaster />
     </NextIntlClientProvider>
