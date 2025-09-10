@@ -52,6 +52,7 @@ function getImageUrl(recipeId: string, imageFileName: string): string {
         // Return a placeholder if the URL or filename is missing
         return 'https://placehold.co/600x400?text=No+Image';
     }
+    // Correctly construct the full image URL including the /api path
     return `${MEALIE_URL.replace(/\/$/, '')}/api/media/recipes/${recipeId}/images/${imageFileName}`;
 }
 
@@ -59,7 +60,8 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
   try {
     let endpoint = '/api/recipes?perPage=999';
     if (options?.category) {
-      endpoint += `&query=${options.category}&searchIn=categories`;
+      // It seems Mealie API uses `filter[categories.slug]` for category filtering
+      endpoint += `&filter[categories.slug]=${options.category}`;
     }
     const data = await mealieFetch(endpoint);
     return data.items.map((item: any) => ({
