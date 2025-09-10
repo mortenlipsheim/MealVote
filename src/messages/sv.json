@@ -46,6 +46,7 @@
     "voteSubmitted": "Tack för att du röstade!",
     "alreadyVoted": "Du har redan röstat i den här omröstningen.",
     "pollNotFound": "Denna omröstning kunde inte hittas.",
-    "selectOption": "Välj ett alternativ att rösta på."
+    "selectOption": "Välj ett alternativ att rösta på.",
+    "goHome": "Gå till startsidan"
   }
 }

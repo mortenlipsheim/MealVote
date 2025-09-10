@@ -46,6 +46,7 @@
     "voteSubmitted": "Grazie per aver votato!",
     "alreadyVoted": "Hai già votato a questo sondaggio.",
     "pollNotFound": "Questo sondaggio non è stato trovato.",
-    "selectOption": "Seleziona un'opzione per votare."
+    "selectOption": "Seleziona un'opzione per votare.",
+    "goHome": "Torna alla Home"
   }
 }

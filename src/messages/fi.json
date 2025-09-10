@@ -46,6 +46,7 @@
     "voteSubmitted": "Kiitos äänestyksestä!",
     "alreadyVoted": "Olet jo äänestänyt tässä kyselyssä.",
     "pollNotFound": "Tätä kyselyä ei löytynyt.",
-    "selectOption": "Valitse vaihtoehto äänestääksesi."
+    "selectOption": "Valitse vaihtoehto äänestääksesi.",
+    "goHome": "Palaa etusivulle"
   }
 }

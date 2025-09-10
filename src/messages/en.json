@@ -46,6 +46,7 @@
     "voteSubmitted": "Thank you for voting!",
     "alreadyVoted": "You have already voted on this poll.",
     "pollNotFound": "This poll could not be found.",
-    "selectOption": "Please select an option to vote."
+    "selectOption": "Please select an option to vote.",
+    "goHome": "Go Home"
   }
 }

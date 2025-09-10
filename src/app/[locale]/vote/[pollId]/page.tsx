@@ -40,7 +40,7 @@ export default async function VotePage({ params }: Props) {
                 <AlertDescription>{t('voteSubmitted')}</AlertDescription>
             </Alert>
             <div className="mt-8">
-                <h2 className="text-2xl font-bold font-headline mb-4">Results</h2>
+                <h2 className="text-2xl font-bold font-headline mb-4">{t('results')}</h2>
                  <div className="space-y-4 text-left">
                     {recipes.map(recipe => {
                         const votes = poll.votes[recipe.id] || 0;
@@ -62,7 +62,7 @@ export default async function VotePage({ params }: Props) {
                 </div>
             </div>
              <Button asChild className="mt-8">
-                <Link href="/">Go Home</Link>
+                <Link href="/">{t('goHome')}</Link>
             </Button>
         </div>
     )
@@ -76,7 +76,7 @@ export default async function VotePage({ params }: Props) {
                 <AlertDescription>Could not load recipes for this poll. Please try again later.</AlertDescription>
             </Alert>
             <Button asChild className="mt-4">
-                <Link href="/">Go Home</Link>
+                <Link href="/">{t('goHome')}</Link>
             </Button>
         </div>
       )

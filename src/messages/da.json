@@ -46,6 +46,7 @@
     "voteSubmitted": "Tak fordi du stemte!",
     "alreadyVoted": "Du har allerede stemt i denne afstemning.",
     "pollNotFound": "Denne afstemning kunne ikke findes.",
-    "selectOption": "Vælg venligst en mulighed for at stemme."
+    "selectOption": "Vælg venligst en mulighed for at stemme.",
+    "goHome": "Gå til forsiden"
   }
 }
