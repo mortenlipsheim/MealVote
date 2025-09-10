@@ -39,6 +39,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  env: {
+    DEFAULT_LOCALE: process.env.DEFAULT_LOCALE,
+  }
 };
 
 export default withNextIntl(nextConfig);
