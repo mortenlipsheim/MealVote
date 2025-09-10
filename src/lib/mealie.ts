@@ -47,20 +47,19 @@ async function mealieFetch(endpoint: string) {
   return res.json();
 }
 
-function getImageUrl(recipeId: string, imageFileName: string): string {
+function getImageUrl(imageFileName: string): string {
     if (!MEALIE_URL || !imageFileName) {
         // Return a placeholder if the URL or filename is missing
         return 'https://placehold.co/600x400?text=No+Image';
     }
-    // Correctly construct the full image URL including the /api path
-    return `${MEALIE_URL.replace(/\/$/, '')}/api/media/recipes/${recipeId}/images/${imageFileName}`;
+    // The imageFileName from the API is the full path needed after the base URL
+    return `${MEALIE_URL.replace(/\/$/, '')}${imageFileName}`;
 }
 
 export async function getRecipes(options?: { category?: string }): Promise<MealieRecipeSummary[]> {
   try {
     let endpoint = '/api/recipes?perPage=999';
     if (options?.category) {
-      // It seems Mealie API uses `filter[categories.slug]` for category filtering
       endpoint += `&filter[categories.slug]=${options.category}`;
     }
     const data = await mealieFetch(endpoint);
@@ -68,7 +67,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
       id: item.id,
       name: item.name,
       slug: item.slug,
-      image: getImageUrl(item.id, item.image),
+      image: getImageUrl(item.imagePath),
       description: item.description || 'No description available.',
       recipeCategory: item.recipeCategory,
     }));
@@ -100,7 +99,7 @@ export async function getRecipe(id: string): Promise<MealieRecipe | null> {
           id: item.id,
           name: item.name,
           slug: item.slug,
-          image: getImageUrl(item.id, item.image),
+          image: getImageUrl(item.imagePath),
           description: item.description || 'No description available.',
           recipeCategory: item.recipeCategory,
         };
