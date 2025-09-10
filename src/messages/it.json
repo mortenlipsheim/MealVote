@@ -47,6 +47,7 @@
     "alreadyVoted": "Hai già votato a questo sondaggio.",
     "pollNotFound": "Questo sondaggio non è stato trovato.",
     "selectOption": "Seleziona un'opzione per votare.",
-    "goHome": "Torna alla Home"
+    "goHome": "Torna alla Home",
+    "results": "Risultati"
   }
 }

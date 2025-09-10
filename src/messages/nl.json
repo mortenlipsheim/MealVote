@@ -47,6 +47,7 @@
     "alreadyVoted": "Je hebt al gestemd in deze peiling.",
     "pollNotFound": "Deze peiling kon niet worden gevonden.",
     "selectOption": "Selecteer een optie om te stemmen.",
-    "goHome": "Terug naar startpagina"
+    "goHome": "Terug naar startpagina",
+    "results": "Resultaten"
   }
 }

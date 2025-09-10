@@ -47,6 +47,7 @@
     "alreadyVoted": "Du har redan röstat i den här omröstningen.",
     "pollNotFound": "Denna omröstning kunde inte hittas.",
     "selectOption": "Välj ett alternativ att rösta på.",
-    "goHome": "Gå till startsidan"
+    "goHome": "Gå till startsidan",
+    "results": "Resultat"
   }
 }

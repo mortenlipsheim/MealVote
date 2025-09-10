@@ -47,6 +47,7 @@
     "alreadyVoted": "You have already voted on this poll.",
     "pollNotFound": "This poll could not be found.",
     "selectOption": "Please select an option to vote.",
-    "goHome": "Go Home"
+    "goHome": "Go Home",
+    "results": "Results"
   }
 }

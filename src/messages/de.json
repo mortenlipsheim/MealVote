@@ -47,6 +47,7 @@
     "alreadyVoted": "Du hast bei dieser Umfrage bereits abgestimmt.",
     "pollNotFound": "Diese Umfrage konnte nicht gefunden werden.",
     "selectOption": "Bitte wähle eine Option zum Abstimmen aus.",
-    "goHome": "Zur Startseite"
+    "goHome": "Zur Startseite",
+    "results": "Ergebnisse"
   }
 }
