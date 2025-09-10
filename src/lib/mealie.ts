@@ -22,10 +22,6 @@ async function mealieFetch(endpoint: string) {
   if (!MEALIE_URL || !MEALIE_TOKEN) {
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
-  if (MEALIE_URL.includes('your-mealie-domain.com') || MEALIE_URL.includes('replace-me')) {
-    throw new Error('Please replace the placeholder MEALIE_API_URL in your .env.local file with your actual Mealie instance URL.');
-  }
-
 
   const res = await fetch(`${MEALIE_URL}/api${endpoint}`, {
     headers: {
@@ -55,7 +51,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
       id: item.id,
       name: item.name,
       slug: item.slug,
-      image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/original.webp`,
+      image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/original.jpg`,
       description: item.description || 'No description available.',
       recipeCategory: item.recipeCategory,
     }));
@@ -82,7 +78,7 @@ export async function getRecipe(id: string): Promise<MealieRecipe | null> {
           id: item.id,
           name: item.name,
           slug: item.slug,
-          image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/original.webp`,
+          image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/original.jpg`,
           description: item.description || 'No description available.',
           recipeCategory: item.recipeCategory,
         };

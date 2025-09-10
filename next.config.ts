@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'your-mealie-domain.replace-me.com',
+        hostname: 'mealie.gausland.com',
         port: '',
         pathname: '/**',
       },
