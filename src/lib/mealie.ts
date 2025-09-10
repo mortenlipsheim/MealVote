@@ -21,6 +21,12 @@ export interface MealieCategory {
 
 async function mealieFetch(endpoint: string) {
   if (!MEALIE_URL || !MEALIE_TOKEN) {
+    // This check is important for when the env vars are not set.
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Mealie API URL or Token is not configured. Please check your .env.local file.');
+      // Return a resolved promise with an empty object to avoid crashing the app during development if not configured.
+      return { items: [] }; 
+    }
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
 
@@ -81,6 +87,7 @@ export async function getCategories(): Promise<MealieCategory[]> {
 export async function getRecipe(id: string): Promise<MealieRecipe | null> {
     try {
         const item = await mealieFetch(`/api/recipes/${id}`);
+        if (!item) return null;
         return {
           id: item.id,
           name: item.name,
