@@ -19,8 +19,12 @@ export interface MealieCategory {
   slug: string;
 }
 
+// Consistently construct the base URL for all API calls
+const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}/api` : '';
+
+
 async function mealieFetch(endpoint: string) {
-  if (!MEALIE_URL || !MEALIE_TOKEN) {
+  if (!MEALIE_API_BASE_URL || !MEALIE_TOKEN) {
     if (process.env.NODE_ENV === 'development') {
       console.warn('Mealie API URL or Token is not configured. Please check your .env.local file.');
       return { items: [] }; 
@@ -29,7 +33,7 @@ async function mealieFetch(endpoint: string) {
   }
 
   // Construct the full URL, ensuring no double slashes
-  const url = `${MEALIE_URL.replace(/\/$/, '')}${endpoint}`;
+  const url = `${MEALIE_API_BASE_URL}${endpoint}`;
 
   const res = await fetch(url, {
     headers: {
@@ -47,18 +51,18 @@ async function mealieFetch(endpoint: string) {
   return res.json();
 }
 
-function getImageUrl(imageFileName: string): string {
-    if (!MEALIE_URL || !imageFileName) {
+function getImageUrl(imagePath: string): string {
+    if (!MEALIE_API_BASE_URL || !imagePath) {
         // Return a placeholder if the URL or filename is missing
         return 'https://placehold.co/600x400?text=No+Image';
     }
-    // The imageFileName from the API is the full path needed after the base URL
-    return `${MEALIE_URL.replace(/\/$/, '')}${imageFileName}`;
+    // The imagePath from the API needs to be appended to the media endpoint
+    return `${MEALIE_API_BASE_URL}/media/recipes/${imagePath}`;
 }
 
 export async function getRecipes(options?: { category?: string }): Promise<MealieRecipeSummary[]> {
   try {
-    let endpoint = '/api/recipes?perPage=999';
+    let endpoint = '/recipes?perPage=999';
     if (options?.category) {
       endpoint += `&filter[categories.slug]=${options.category}`;
     }
@@ -67,7 +71,8 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
       id: item.id,
       name: item.name,
       slug: item.slug,
-      image: getImageUrl(item.imagePath),
+      // Use the 'id' and 'image' properties to construct the correct URL
+      image: getImageUrl(`${item.id}/images/${item.image}`),
       description: item.description || 'No description available.',
       recipeCategory: item.recipeCategory,
     }));
@@ -79,7 +84,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/api/recipe-categories?perPage=999');
+    const data = await mealieFetch('/recipe-categories?perPage=999');
     return data.items.map((item: any) => ({
         id: item.id,
         name: item.name,
@@ -93,13 +98,13 @@ export async function getCategories(): Promise<MealieCategory[]> {
 
 export async function getRecipe(id: string): Promise<MealieRecipe | null> {
     try {
-        const item = await mealieFetch(`/api/recipes/${id}`);
+        const item = await mealieFetch(`/recipes/${id}`);
         if (!item) return null;
         return {
           id: item.id,
           name: item.name,
           slug: item.slug,
-          image: getImageUrl(item.imagePath),
+          image: getImageUrl(`${item.id}/images/${item.image}`),
           description: item.description || 'No description available.',
           recipeCategory: item.recipeCategory,
         };
