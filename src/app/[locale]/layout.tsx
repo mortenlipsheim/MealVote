@@ -18,13 +18,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          {children}
-        </main>
-        <Footer />
-      </div>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+        </div>
       <Toaster />
     </NextIntlClientProvider>
   );
