@@ -18,7 +18,7 @@ export default async function AdminPage() {
       <h1 className="text-4xl font-headline font-bold mb-2">{t('title')}</h1>
       <p className="text-muted-foreground mb-8">{t('description')}</p>
       
-      <PollsList initialPolls={initialPolls} allRecipes={allRecipes} />
+      <PollsList initialPolls={initialPolls} allRecipes={allRecipes} showAdminActions />
 
       <AdminDashboard initialCategories={initialCategories} />
     </div>

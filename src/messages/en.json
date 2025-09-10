@@ -20,7 +20,13 @@
     "results": "Results",
     "votes": "{count, plural, one {vote} other {votes}}",
     "createdAt": "Created on {date}",
-    "view": "View"
+    "view": "View",
+    "deleteTitle": "Are you sure?",
+    "deleteDescription": "This action cannot be undone. This will permanently delete the poll and all its votes.",
+    "deleteConfirm": "Delete",
+    "deleteCancel": "Cancel",
+    "deleteSuccess": "Poll deleted successfully.",
+    "deleteErrorTitle": "Deletion Failed"
   },
   "AdminPage": {
     "title": "Admin Dashboard",

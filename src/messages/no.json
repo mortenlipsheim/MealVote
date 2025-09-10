@@ -20,7 +20,13 @@
     "results": "Resultater",
     "votes": "{count, plural, one {stemme} other {stemmer}}",
     "createdAt": "Opprettet {date}",
-    "view": "Vis"
+    "view": "Vis",
+    "deleteTitle": "Er du sikker?",
+    "deleteDescription": "Denne handlingen kan ikke angres. Dette vil permanent slette avstemningen og alle dens stemmer.",
+    "deleteConfirm": "Slett",
+    "deleteCancel": "Avbryt",
+    "deleteSuccess": "Avstemningen ble slettet.",
+    "deleteErrorTitle": "Sletting mislyktes"
   },
   "AdminPage": {
     "title": "Admin-dashbord",

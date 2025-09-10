@@ -1,7 +1,7 @@
 'use server';
 
 import { getRecipes } from '@/lib/mealie';
-import { createPoll } from '@/lib/polls';
+import { createPoll, deletePoll } from '@/lib/polls';
 import { revalidatePath } from 'next/cache';
 
 export async function getRecipesAction(categories?: string[]) {
@@ -21,5 +21,19 @@ export async function createPollAction(recipeIds: string[]) {
   }
   const poll = await createPoll(recipeIds);
   revalidatePath('/[locale]/admin', 'page');
+  revalidatePath('/[locale]', 'page');
   return poll;
+}
+
+
+export async function deletePollAction(pollId: string) {
+  try {
+    await deletePoll(pollId);
+    revalidatePath('/[locale]/admin', 'page');
+    revalidatePath('/[locale]', 'page');
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to delete poll:', error);
+    return { success: false, message: error instanceof Error ? error.message : 'An unknown error occurred.' };
+  }
 }

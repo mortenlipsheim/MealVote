@@ -20,7 +20,13 @@
     "results": "Resultat",
     "votes": "{count, plural, one {röst} other {röster}}",
     "createdAt": "Skapad den {date}",
-    "view": "Visa"
+    "view": "Visa",
+    "deleteTitle": "Är du säker?",
+    "deleteDescription": "Denna åtgärd kan inte ångras. Detta kommer att permanent radera omröstningen och alla dess röster.",
+    "deleteConfirm": "Radera",
+    "deleteCancel": "Avbryt",
+    "deleteSuccess": "Omröstningen har raderats.",
+    "deleteErrorTitle": "Radering misslyckades"
   },
   "AdminPage": {
     "title": "Adminpanel",

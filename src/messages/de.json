@@ -20,7 +20,13 @@
     "results": "Ergebnisse",
     "votes": "{count, plural, one {Stimme} other {Stimmen}}",
     "createdAt": "Erstellt am {date}",
-    "view": "Ansehen"
+    "view": "Ansehen",
+    "deleteTitle": "Bist du sicher?",
+    "deleteDescription": "Diese Aktion kann nicht rückgängig gemacht werden. Dadurch werden die Umfrage und alle ihre Stimmen dauerhaft gelöscht.",
+    "deleteConfirm": "Löschen",
+    "deleteCancel": "Abbrechen",
+    "deleteSuccess": "Umfrage erfolgreich gelöscht.",
+    "deleteErrorTitle": "Löschen fehlgeschlagen"
   },
   "AdminPage": {
     "title": "Admin-Dashboard",

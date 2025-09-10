@@ -20,7 +20,13 @@
     "results": "Resultados",
     "votes": "{count, plural, one {voto} other {votos}}",
     "createdAt": "Creado el {date}",
-    "view": "Ver"
+    "view": "Ver",
+    "deleteTitle": "¿Estás seguro?",
+    "deleteDescription": "Esta acción no se puede deshacer. Esto eliminará permanentemente la encuesta y todos sus votos.",
+    "deleteConfirm": "Eliminar",
+    "deleteCancel": "Cancelar",
+    "deleteSuccess": "Encuesta eliminada con éxito.",
+    "deleteErrorTitle": "Error al eliminar"
   },
   "AdminPage": {
     "title": "Panel de administración",

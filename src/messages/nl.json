@@ -20,7 +20,13 @@
     "results": "Resultaten",
     "votes": "{count, plural, one {stem} other {stemmen}}",
     "createdAt": "Gemaakt op {date}",
-    "view": "Bekijken"
+    "view": "Bekijken",
+    "deleteTitle": "Weet je het zeker?",
+    "deleteDescription": "Deze actie kan niet ongedaan worden gemaakt. Hiermee worden de peiling en alle stemmen permanent verwijderd.",
+    "deleteConfirm": "Verwijderen",
+    "deleteCancel": "Annuleren",
+    "deleteSuccess": "Peiling succesvol verwijderd.",
+    "deleteErrorTitle": "Verwijderen mislukt"
   },
   "AdminPage": {
     "title": "Beheerdersdashboard",

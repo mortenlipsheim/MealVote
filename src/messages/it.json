@@ -20,7 +20,13 @@
     "results": "Risultati",
     "votes": "{count, plural, one {voto} other {voti}}",
     "createdAt": "Creato il {date}",
-    "view": "Visualizza"
+    "view": "Visualizza",
+    "deleteTitle": "Sei sicuro?",
+    "deleteDescription": "Questa azione non può essere annullata. Eliminerà permanentemente il sondaggio e tutti i suoi voti.",
+    "deleteConfirm": "Elimina",
+    "deleteCancel": "Annulla",
+    "deleteSuccess": "Sondaggio eliminato con successo.",
+    "deleteErrorTitle": "Eliminazione fallita"
   },
   "AdminPage": {
     "title": "Dashboard di amministrazione",

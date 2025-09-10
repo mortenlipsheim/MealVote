@@ -20,7 +20,13 @@
     "results": "Résultats",
     "votes": "{count, plural, one {vote} other {votes}}",
     "createdAt": "Créé le {date}",
-    "view": "Voir"
+    "view": "Voir",
+    "deleteTitle": "Êtes-vous sûr(e) ?",
+    "deleteDescription": "Cette action est irréversible. Le sondage et tous ses votes seront supprimés définitivement.",
+    "deleteConfirm": "Supprimer",
+    "deleteCancel": "Annuler",
+    "deleteSuccess": "Sondage supprimé avec succès.",
+    "deleteErrorTitle": "Échec de la suppression"
   },
   "AdminPage": {
     "title": "Tableau de bord d'administration",

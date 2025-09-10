@@ -85,10 +85,27 @@ export async function addVote(pollId: string, recipeId: string): Promise<Poll | 
   if (poll.votes[recipeId] !== undefined) {
     poll.votes[recipeId]++;
   } else {
+    // This case should ideally not happen if a poll is well-formed
     poll.votes[recipeId] = 1;
   }
 
   const filePath = path.join(pollsDirectory, `${pollId}.json`);
   await fs.writeFile(filePath, JSON.stringify(poll, null, 2));
   return poll;
+}
+
+export async function deletePoll(id: string): Promise<void> {
+  await ensureDirectoryExists();
+  const filePath = path.join(pollsDirectory, `${id}.json`);
+  try {
+    await fs.unlink(filePath);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      // If file doesn't exist, it's already "deleted". No need to throw.
+      console.warn(`Attempted to delete non-existent poll: ${id}`);
+      return;
+    }
+    console.error(`Failed to delete poll ${id}:`, error);
+    throw new Error(`Could not delete poll ${id}.`);
+  }
 }

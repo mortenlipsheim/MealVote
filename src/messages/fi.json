@@ -20,7 +20,13 @@
     "results": "Tulokset",
     "votes": "{count, plural, one {ääni} other {ääntä}}",
     "createdAt": "Luotu {date}",
-    "view": "Näytä"
+    "view": "Näytä",
+    "deleteTitle": "Oletko varma?",
+    "deleteDescription": "Tätä toimintoa ei voi peruuttaa. Tämä poistaa kyselyn ja kaikki sen äänet pysyvästi.",
+    "deleteConfirm": "Poista",
+    "deleteCancel": "Peruuta",
+    "deleteSuccess": "Kysely poistettu onnistuneesti.",
+    "deleteErrorTitle": "Poistaminen epäonnistui"
   },
   "AdminPage": {
     "title": "Hallintapaneeli",
