@@ -1,0 +1,48 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Entscheidet gemeinsam über euer nächstes Essen.",
+    "description": "Willkommen bei MealVote, dem einfachsten Weg, um deine Gäste darüber abstimmen zu lassen, was du als Nächstes kochen sollst. Erstelle eine Umfrage, teile den Link und sieh dir die Ergebnisse an.",
+    "cta": "Zum Admin-Dashboard"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Mit ❤️ für glückliche Mahlzeiten gebaut."
+  },
+  "AdminPage": {
+    "title": "Admin-Dashboard",
+    "description": "Erstelle und verwalte deine Essensumfragen.",
+    "selectRecipes": "Rezepte auswählen",
+    "filterByCategory": "Nach Kategorie filtern",
+    "allCategories": "Alle Kategorien",
+    "noRecipes": "Keine Rezepte gefunden. Überprüfe deine Mealie-Verbindung oder Filter.",
+    "loadingRecipes": "Lade Rezepte...",
+    "selectedTitle": "Ausgewählte Rezepte",
+    "clearSelection": "Löschen",
+    "createPoll": "Umfrage mit {count} Rezepten erstellen",
+    "creatingPoll": "Wird erstellt...",
+    "pollCreated": "Umfrage erfolgreich erstellt!",
+    "pollLink": "Teile diesen Link mit deinen Gästen:",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert!",
+    "existingPolls": "Bestehende Umfragen",
+    "noPolls": "Noch keine Umfragen erstellt.",
+    "poll": "Umfrage",
+    "results": "Ergebnisse",
+    "votes": "Stimmen",
+    "createdAt": "Erstellt am {date}"
+  },
+  "VotePage": {
+    "title": "Stimme für dein Lieblingsessen ab!",
+    "description": "Der Gastgeber möchte wissen, was du gerne essen würdest. Gib unten deine Stimme ab.",
+    "submitVote": "Stimme abgeben",
+    "submitting": "Wird übermittelt...",
+    "voteSubmitted": "Vielen Dank für deine Stimme!",
+    "alreadyVoted": "Du hast bei dieser Umfrage bereits abgestimmt.",
+    "pollNotFound": "Diese Umfrage konnte nicht gefunden werden.",
+    "selectOption": "Bitte wähle eine Option zum Abstimmen aus."
+  }
+}

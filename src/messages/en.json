@@ -1,0 +1,48 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Decide your next meal, together.",
+    "description": "Welcome to MealVote, the easiest way to let your guests vote on what you should cook next. Create a poll, share the link, and see the results.",
+    "cta": "Go to Admin Dashboard"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Built with ❤️ for happy meals."
+  },
+  "AdminPage": {
+    "title": "Admin Dashboard",
+    "description": "Create and manage your meal polls.",
+    "selectRecipes": "Select Recipes",
+    "filterByCategory": "Filter by category",
+    "allCategories": "All Categories",
+    "noRecipes": "No recipes found. Check your Mealie connection or filters.",
+    "loadingRecipes": "Loading recipes...",
+    "selectedTitle": "Selected Recipes",
+    "clearSelection": "Clear",
+    "createPoll": "Create Poll with {count} recipes",
+    "creatingPoll": "Creating...",
+    "pollCreated": "Poll created successfully!",
+    "pollLink": "Share this link with your guests:",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "existingPolls": "Existing Polls",
+    "noPolls": "No polls created yet.",
+    "poll": "Poll",
+    "results": "Results",
+    "votes": "votes",
+    "createdAt": "Created on {date}"
+  },
+  "VotePage": {
+    "title": "Vote for your favorite meal!",
+    "description": "The host wants to know what you'd like to eat. Cast your vote below.",
+    "submitVote": "Submit Vote",
+    "submitting": "Submitting...",
+    "voteSubmitted": "Thank you for voting!",
+    "alreadyVoted": "You have already voted on this poll.",
+    "pollNotFound": "This poll could not be found.",
+    "selectOption": "Please select an option to vote."
+  }
+}
