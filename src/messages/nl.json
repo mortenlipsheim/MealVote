@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Met ❤️ gemaakt voor vrolijke maaltijden."
   },
+  "PollsList": {
+    "existingPolls": "Bestaande peilingen",
+    "noPolls": "Nog geen peilingen gemaakt.",
+    "poll": "Peiling",
+    "results": "Resultaten",
+    "votes": "{count, plural, one {stem} other {stemmen}}",
+    "createdAt": "Gemaakt op {date}",
+    "view": "Bekijken"
+  },
   "AdminPage": {
     "title": "Beheerdersdashboard",
     "description": "Maak en beheer je maaltijdpeilingen.",
-    "selectRecipes": "Selecteer recepten",
+    "selectRecipes": "Selecteer recepten om een nieuwe peiling te maken",
     "filterByCategory": "Filter op categorie",
     "categoriesSelected": "{count} categorieën geselecteerd",
     "allCategories": "Alle categorieën",
@@ -30,13 +39,7 @@
     "pollCreated": "Peiling succesvol aangemaakt!",
     "pollLink": "Deel deze link met je gasten:",
     "copyLink": "Link kopiëren",
-    "copied": "Gekopieerd!",
-    "existingPolls": "Bestaande peilingen",
-    "noPolls": "Nog geen peilingen gemaakt.",
-    "poll": "Peiling",
-    "results": "Resultaten",
-    "votes": "stemmen",
-    "createdAt": "Gemaakt op {date}"
+    "copied": "Gekopieerd!"
   },
   "VotePage": {
     "title": "Stem op je favoriete maaltijd!",

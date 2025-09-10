@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Creato con ❤️ per pasti felici."
   },
+  "PollsList": {
+    "existingPolls": "Sondaggi esistenti",
+    "noPolls": "Nessun sondaggio ancora creato.",
+    "poll": "Sondaggio",
+    "results": "Risultati",
+    "votes": "{count, plural, one {voto} other {voti}}",
+    "createdAt": "Creato il {date}",
+    "view": "Visualizza"
+  },
   "AdminPage": {
     "title": "Dashboard di amministrazione",
     "description": "Crea e gestisci i tuoi sondaggi sui pasti.",
-    "selectRecipes": "Seleziona ricette",
+    "selectRecipes": "Seleziona ricette per creare un nuovo sondaggio",
     "filterByCategory": "Filtra per categoria",
     "categoriesSelected": "{count} categorie selezionate",
     "allCategories": "Tutte le categorie",
@@ -30,13 +39,7 @@
     "pollCreated": "Sondaggio creato con successo!",
     "pollLink": "Condividi questo link con i tuoi ospiti:",
     "copyLink": "Copia link",
-    "copied": "Copiato!",
-    "existingPolls": "Sondaggi esistenti",
-    "noPolls": "Nessun sondaggio ancora creato.",
-    "poll": "Sondaggio",
-    "results": "Risultati",
-    "votes": "voti",
-    "createdAt": "Creato il {date}"
+    "copied": "Copiato!"
   },
   "VotePage": {
     "title": "Vota per il tuo piatto preferito!",

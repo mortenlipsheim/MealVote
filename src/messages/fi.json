@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Rakennettu ❤️:llä onnellisia aterioita varten."
   },
+  "PollsList": {
+    "existingPolls": "Olemassa olevat kyselyt",
+    "noPolls": "Kyselyitä ei ole vielä luotu.",
+    "poll": "Kysely",
+    "results": "Tulokset",
+    "votes": "{count, plural, one {ääni} other {ääntä}}",
+    "createdAt": "Luotu {date}",
+    "view": "Näytä"
+  },
   "AdminPage": {
     "title": "Hallintapaneeli",
     "description": "Luo ja hallinnoi ateriakyselyitäsi.",
-    "selectRecipes": "Valitse reseptejä",
+    "selectRecipes": "Valitse reseptejä luodaksesi uuden kyselyn",
     "filterByCategory": "Suodata luokan mukaan",
     "categoriesSelected": "{count} luokkaa valittu",
     "allCategories": "Kaikki luokat",
@@ -30,13 +39,7 @@
     "pollCreated": "Kysely luotu onnistuneesti!",
     "pollLink": "Jaa tämä linkki vieraillesi:",
     "copyLink": "Kopioi linkki",
-    "copied": "Kopioitu!",
-    "existingPolls": "Olemassa olevat kyselyt",
-    "noPolls": "Kyselyitä ei ole vielä luotu.",
-    "poll": "Kysely",
-    "results": "Tulokset",
-    "votes": "ääntä",
-    "createdAt": "Luotu {date}"
+    "copied": "Kopioitu!"
   },
   "VotePage": {
     "title": "Äänestä suosikkiateriaasi!",

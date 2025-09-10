@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Bygget med ❤️ for glade måltider."
   },
+  "PollsList": {
+    "existingPolls": "Eksisterende afstemninger",
+    "noPolls": "Ingen afstemninger oprettet endnu.",
+    "poll": "Afstemning",
+    "results": "Resultater",
+    "votes": "{count, plural, one {stemme} other {stemmer}}",
+    "createdAt": "Oprettet den {date}",
+    "view": "Se"
+  },
   "AdminPage": {
     "title": "Admin-dashboard",
     "description": "Opret og administrer dine måltidsafstemninger.",
-    "selectRecipes": "Vælg opskrifter",
+    "selectRecipes": "Vælg opskrifter for at oprette en ny afstemning",
     "filterByCategory": "Filtrer efter kategori",
     "categoriesSelected": "{count} kategorier valgt",
     "allCategories": "Alle kategorier",
@@ -30,13 +39,7 @@
     "pollCreated": "Afstemning oprettet!",
     "pollLink": "Del dette link med dine gæster:",
     "copyLink": "Kopier link",
-    "copied": "Kopieret!",
-    "existingPolls": "Eksisterende afstemninger",
-    "noPolls": "Ingen afstemninger oprettet endnu.",
-    "poll": "Afstemning",
-    "results": "Resultater",
-    "votes": "stemmer",
-    "createdAt": "Oprettet den {date}"
+    "copied": "Kopieret!"
   },
   "VotePage": {
     "title": "Stem på din yndlingsret!",

@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Hecho con ❤️ para comidas felices."
   },
+  "PollsList": {
+    "existingPolls": "Encuestas existentes",
+    "noPolls": "Aún no se han creado encuestas.",
+    "poll": "Encuesta",
+    "results": "Resultados",
+    "votes": "{count, plural, one {voto} other {votos}}",
+    "createdAt": "Creado el {date}",
+    "view": "Ver"
+  },
   "AdminPage": {
     "title": "Panel de administración",
     "description": "Crea y gestiona tus encuestas de comidas.",
-    "selectRecipes": "Seleccionar recetas",
+    "selectRecipes": "Seleccionar recetas para crear una nueva encuesta",
     "filterByCategory": "Filtrar por categoría",
     "categoriesSelected": "{count} categorías seleccionadas",
     "allCategories": "Todas las categorías",
@@ -30,13 +39,7 @@
     "pollCreated": "¡Encuesta creada con éxito!",
     "pollLink": "Comparte este enlace con tus invitados:",
     "copyLink": "Copiar enlace",
-    "copied": "¡Copiado!",
-    "existingPolls": "Encuestas existentes",
-    "noPolls": "Aún no se han creado encuestas.",
-    "poll": "Encuesta",
-    "results": "Resultados",
-    "votes": "votos",
-    "createdAt": "Creado el {date}"
+    "copied": "¡Copiado!"
   },
   "VotePage": {
     "title": "¡Vota por tu comida favorita!",

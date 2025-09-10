@@ -1,11 +1,17 @@
-
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/ui/button';
 import { Link } from '@/navigation';
 import { Utensils } from 'lucide-react';
+import { getAllPolls } from '@/lib/polls';
+import { getRecipes } from '@/lib/mealie';
+import PollsList from '@/components/polls/PollsList';
 
-export default function HomePage() {
-  const t = useTranslations('HomePage');
+export default async function HomePage() {
+  const t = await getTranslations('HomePage');
+  const polls = await getAllPolls();
+  // We need all recipes to resolve names in the polls list.
+  const recipes = await getRecipes();
 
   return (
     <div className="text-center flex flex-col items-center justify-center py-16">
@@ -22,6 +28,12 @@ export default function HomePage() {
       <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
         <Link href="/admin">{t('cta')}</Link>
       </Button>
+
+      {polls.length > 0 && (
+        <div className="mt-16 w-full max-w-4xl text-left">
+           <PollsList initialPolls={polls} allRecipes={recipes} />
+        </div>
+      )}
     </div>
   );
 }

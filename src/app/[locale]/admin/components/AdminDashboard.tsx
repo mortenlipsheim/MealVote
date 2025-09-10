@@ -3,34 +3,28 @@
 
 import { useState, useEffect, useTransition } from 'react';
 import { useTranslations } from 'next-intl';
-import { useFormatter, useLocale } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { MealieCategory, MealieRecipeSummary } from '@/lib/mealie';
-import { Poll } from '@/lib/polls';
-import { getRecipesAction, createPollAction } from '../actions';
+import { createPollAction, getRecipesAction } from '../actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import RecipeCard from '@/components/recipes/RecipeCard';
-import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Clipboard, ExternalLink, Loader2, Info, ChevronDown } from 'lucide-react';
-import { Link, usePathname, useRouter } from '@/navigation';
+import { Clipboard, Loader2, Info, ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 
 type AdminDashboardProps = {
   initialCategories: MealieCategory[];
-  initialPolls: Poll[];
 };
 
-export default function AdminDashboard({ initialCategories, initialPolls }: AdminDashboardProps) {
+export default function AdminDashboard({ initialCategories }: AdminDashboardProps) {
   const t = useTranslations('AdminPage');
-  const format = useFormatter();
   const locale = useLocale();
   const { toast } = useToast();
 
   const [recipes, setRecipes] = useState<MealieRecipeSummary[]>([]);
   const [selectedRecipes, setSelectedRecipes] = useState<MealieRecipeSummary[]>([]);
-  const [polls, setPolls] = useState<Poll[]>(initialPolls);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [newPollUrl, setNewPollUrl] = useState('');
   
@@ -78,13 +72,14 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
     startCreatingPoll(async () => {
       try {
         const newPoll = await createPollAction(selectedRecipes.map(r => r.id));
-        setPolls(prev => [newPoll, ...prev]);
         const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
         setNewPollUrl(`${siteUrl}/${locale}/vote/${newPoll.id}`);
         setSelectedRecipes([]);
         toast({
           title: t('pollCreated'),
         });
+        // We no longer manage polls here, so we don't need to update state
+        // A page refresh would show the new poll in the separate component
       } catch (error) {
         toast({
           variant: 'destructive',
@@ -112,7 +107,7 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mt-8">
       <Card>
         <CardHeader>
           <CardTitle className="font-headline">{t('selectRecipes')}</CardTitle>
@@ -199,56 +194,6 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
           )}
         </CardContent>
       </Card>
-      
-      <Separator />
-
-      <div className="space-y-4">
-        <h2 className="text-2xl font-headline font-bold">{t('existingPolls')}</h2>
-        {polls.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {polls.map(poll => (
-              <Card key={poll.id}>
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center text-lg">
-                    <span>{t('poll')} #{poll.id.substring(0, 8)}</span>
-                    <Button variant="outline" size="sm" asChild>
-                        <Link href={`/vote/${poll.id}`} target="_blank">
-                            <ExternalLink className="mr-2 h-4 w-4"/> View
-                        </Link>
-                    </Button>
-                  </CardTitle>
-                   <p className="text-sm text-muted-foreground pt-1">
-                    {t('createdAt', {date: format.dateTime(new Date(poll.createdAt), {dateStyle: 'medium', timeStyle: 'short'})})}
-                   </p>
-                </CardHeader>
-                <CardContent>
-                    <h3 className="font-semibold mb-2">{t('results')}</h3>
-                    <ul className="space-y-2 text-sm">
-                        {Object.entries(poll.votes).map(([recipeId, votes]) => {
-                            const totalVotes = Object.values(poll.votes).reduce((sum, v) => sum + v, 0);
-                            const percentage = totalVotes > 0 ? (votes / totalVotes) * 100 : 0;
-                            const recipeName = recipes.find(r => r.id === recipeId)?.name || 'Unknown Recipe';
-                            return (
-                                <li key={recipeId}>
-                                    <div className="flex justify-between items-center mb-1">
-                                        <span>{recipeName}</span>
-                                        <span className="font-semibold">{votes} {t('votes')}</span>
-                                    </div>
-                                    <div className="w-full bg-muted rounded-full h-2.5">
-                                        <div className="bg-primary h-2.5 rounded-full" style={{ width: `${percentage}%` }}></div>
-                                    </div>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <p className="text-muted-foreground">{t('noPolls')}</p>
-        )}
-      </div>
     </div>
   );
 }

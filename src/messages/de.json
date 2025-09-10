@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Mit ❤️ für glückliche Mahlzeiten gebaut."
   },
+  "PollsList": {
+    "existingPolls": "Bestehende Umfragen",
+    "noPolls": "Noch keine Umfragen erstellt.",
+    "poll": "Umfrage",
+    "results": "Ergebnisse",
+    "votes": "{count, plural, one {Stimme} other {Stimmen}}",
+    "createdAt": "Erstellt am {date}",
+    "view": "Ansehen"
+  },
   "AdminPage": {
     "title": "Admin-Dashboard",
     "description": "Erstelle und verwalte deine Essensumfragen.",
-    "selectRecipes": "Rezepte auswählen",
+    "selectRecipes": "Rezepte auswählen, um eine neue Umfrage zu erstellen",
     "filterByCategory": "Nach Kategorie filtern",
     "categoriesSelected": "{count} Kategorien ausgewählt",
     "allCategories": "Alle Kategorien",
@@ -30,13 +39,7 @@
     "pollCreated": "Umfrage erfolgreich erstellt!",
     "pollLink": "Teile diesen Link mit deinen Gästen:",
     "copyLink": "Link kopieren",
-    "copied": "Kopiert!",
-    "existingPolls": "Bestehende Umfragen",
-    "noPolls": "Noch keine Umfragen erstellt.",
-    "poll": "Umfrage",
-    "results": "Ergebnisse",
-    "votes": "Stimmen",
-    "createdAt": "Erstellt am {date}"
+    "copied": "Kopiert!"
   },
   "VotePage": {
     "title": "Stimme für dein Lieblingsessen ab!",

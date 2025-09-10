@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Built with ❤️ for happy meals."
   },
+  "PollsList": {
+    "existingPolls": "Existing Polls",
+    "noPolls": "No polls created yet.",
+    "poll": "Poll",
+    "results": "Results",
+    "votes": "{count, plural, one {vote} other {votes}}",
+    "createdAt": "Created on {date}",
+    "view": "View"
+  },
   "AdminPage": {
     "title": "Admin Dashboard",
     "description": "Create and manage your meal polls.",
-    "selectRecipes": "Select Recipes",
+    "selectRecipes": "Select Recipes to Create a New Poll",
     "filterByCategory": "Filter by category",
     "categoriesSelected": "{count} categories selected",
     "allCategories": "All Categories",
@@ -30,13 +39,7 @@
     "pollCreated": "Poll created successfully!",
     "pollLink": "Share this link with your guests:",
     "copyLink": "Copy Link",
-    "copied": "Copied!",
-    "existingPolls": "Existing Polls",
-    "noPolls": "No polls created yet.",
-    "poll": "Poll",
-    "results": "Results",
-    "votes": "votes",
-    "createdAt": "Created on {date}"
+    "copied": "Copied!"
   },
   "VotePage": {
     "title": "Vote for your favorite meal!",

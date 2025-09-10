@@ -13,10 +13,19 @@
   "Footer": {
     "text": "Byggd med ❤️ för glada måltider."
   },
+  "PollsList": {
+    "existingPolls": "Befintliga omröstningar",
+    "noPolls": "Inga omröstningar skapade än.",
+    "poll": "Omröstning",
+    "results": "Resultat",
+    "votes": "{count, plural, one {röst} other {röster}}",
+    "createdAt": "Skapad den {date}",
+    "view": "Visa"
+  },
   "AdminPage": {
     "title": "Adminpanel",
     "description": "Skapa och hantera dina måltidsomröstningar.",
-    "selectRecipes": "Välj recept",
+    "selectRecipes": "Välj recept för att skapa en ny omröstning",
     "filterByCategory": "Filtrera efter kategori",
     "categoriesSelected": "{count} kategorier valda",
     "allCategories": "Alla kategorier",
@@ -30,13 +39,7 @@
     "pollCreated": "Omröstning skapad!",
     "pollLink": "Dela den här länken med dina gäster:",
     "copyLink": "Kopiera länk",
-    "copied": "Kopierad!",
-    "existingPolls": "Befintliga omröstningar",
-    "noPolls": "Inga omröstningar skapade än.",
-    "poll": "Omröstning",
-    "results": "Resultat",
-    "votes": "röster",
-    "createdAt": "Skapad den {date}"
+    "copied": "Kopierad!"
   },
   "VotePage": {
     "title": "Rösta på din favoritmåltid!",
