@@ -22,6 +22,10 @@ async function mealieFetch(endpoint: string) {
   if (!MEALIE_URL || !MEALIE_TOKEN) {
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
+  if (MEALIE_URL.includes('your-mealie-domain.com') || MEALIE_URL.includes('replace-me')) {
+    throw new Error('Please replace the placeholder MEALIE_API_URL in your .env.local file with your actual Mealie instance URL.');
+  }
+
 
   const res = await fetch(`${MEALIE_URL}/api${endpoint}`, {
     headers: {
@@ -43,7 +47,8 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
   try {
     let endpoint = '/recipes?perPage=999';
     if (options?.category) {
-      endpoint += `&query=${options.category}&searchIn=categories`;
+      // Correct query parameter for filtering by category slug in recent Mealie versions
+      endpoint += `&filter[recipeCategories.slug]=${options.category}`;
     }
     const data = await mealieFetch(endpoint);
     return data.items.map((item: any) => ({
