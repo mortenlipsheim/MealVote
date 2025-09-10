@@ -51,7 +51,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
       id: item.id,
       name: item.name,
       slug: item.slug,
-      image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/original.jpg`,
+      image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/${item.image}`,
       description: item.description || 'No description available.',
       recipeCategory: item.recipeCategory,
     }));
@@ -78,7 +78,7 @@ export async function getRecipe(id: string): Promise<MealieRecipe | null> {
           id: item.id,
           name: item.name,
           slug: item.slug,
-          image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/original.jpg`,
+          image: `${MEALIE_URL}/api/media/recipes/${item.id}/images/${item.image}`,
           description: item.description || 'No description available.',
           recipeCategory: item.recipeCategory,
         };
