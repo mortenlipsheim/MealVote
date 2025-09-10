@@ -57,6 +57,7 @@
     "pollNotFound": "Deze peiling kon niet worden gevonden.",
     "selectOption": "Selecteer een optie om te stemmen.",
     "goHome": "Terug naar startpagina",
-    "results": "Resultaten"
+    "results": "Resultaten",
+    "voteForThisMeal": "Stem op deze maaltijd"
   }
 }

@@ -57,6 +57,7 @@
     "pollNotFound": "Denna omröstning kunde inte hittas.",
     "selectOption": "Välj ett alternativ att rösta på.",
     "goHome": "Gå till startsidan",
-    "results": "Resultat"
+    "results": "Resultat",
+    "voteForThisMeal": "Rösta på den här rätten"
   }
 }

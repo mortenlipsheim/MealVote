@@ -57,6 +57,7 @@
     "pollNotFound": "No se pudo encontrar esta encuesta.",
     "selectOption": "Por favor, selecciona una opción para votar.",
     "goHome": "Ir a la página principal",
-    "results": "Resultados"
+    "results": "Resultados",
+    "voteForThisMeal": "Votar por este plato"
   }
 }

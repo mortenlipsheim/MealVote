@@ -10,7 +10,7 @@ import RecipeCard from '@/components/recipes/RecipeCard';
 import { useToast } from '@/hooks/use-toast';
 import { submitVoteAction } from '../actions';
 import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/navigation';
 
 type VotingFormProps = {
   pollId: string;
@@ -68,7 +68,7 @@ export default function VotingForm({ pollId, recipes }: VotingFormProps) {
             <RecipeCard recipe={recipe} isSelected={selectedRecipeId === recipe.id}>
               <div className="flex items-center space-x-2 mt-4">
                 <RadioGroupItem value={recipe.id} id={recipe.id} />
-                <span className="font-semibold">Vote for this meal</span>
+                <span className="font-semibold">{t('voteForThisMeal')}</span>
               </div>
             </RecipeCard>
           </Label>

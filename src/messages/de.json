@@ -57,6 +57,7 @@
     "pollNotFound": "Diese Umfrage konnte nicht gefunden werden.",
     "selectOption": "Bitte wähle eine Option zum Abstimmen aus.",
     "goHome": "Zur Startseite",
-    "results": "Ergebnisse"
+    "results": "Ergebnisse",
+    "voteForThisMeal": "Für dieses Gericht stimmen"
   }
 }

@@ -57,6 +57,7 @@
     "pollNotFound": "This poll could not be found.",
     "selectOption": "Please select an option to vote.",
     "goHome": "Go Home",
-    "results": "Results"
+    "results": "Results",
+    "voteForThisMeal": "Vote for this meal"
   }
 }

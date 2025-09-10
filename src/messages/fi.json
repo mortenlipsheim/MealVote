@@ -57,6 +57,7 @@
     "pollNotFound": "Tätä kyselyä ei löytynyt.",
     "selectOption": "Valitse vaihtoehto äänestääksesi.",
     "goHome": "Palaa etusivulle",
-    "results": "Tulokset"
+    "results": "Tulokset",
+    "voteForThisMeal": "Äänestä tästä ateriasta"
   }
 }

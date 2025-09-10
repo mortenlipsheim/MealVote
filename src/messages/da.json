@@ -57,6 +57,7 @@
     "pollNotFound": "Denne afstemning kunne ikke findes.",
     "selectOption": "Vælg venligst en mulighed for at stemme.",
     "goHome": "Gå til forsiden",
-    "results": "Resultater"
+    "results": "Resultater",
+    "voteForThisMeal": "Stem på denne ret"
   }
 }
