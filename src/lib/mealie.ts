@@ -43,7 +43,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
   try {
     let endpoint = '/recipes?perPage=999';
     if (options?.category) {
-      endpoint += `&filter[recipeCategory.slug]=${options.category}`;
+      endpoint += `&query=${options.category}&searchIn=categories`;
     }
     const data = await mealieFetch(endpoint);
     return data.items.map((item: any) => ({
@@ -62,7 +62,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/recipes/categories?perPage=999');
+    const data = await mealieFetch('/recipe-categories?perPage=999');
     return data.items;
   } catch (error) {
     console.error('Error fetching Mealie categories:', error);
