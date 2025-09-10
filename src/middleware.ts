@@ -2,7 +2,7 @@ import createMiddleware from 'next-intl/middleware';
 import {pathnames, locales, localePrefix} from './navigation';
  
 export default createMiddleware({
-  defaultLocale: 'en',
+  defaultLocale: process.env.DEFAULT_LOCALE || 'en',
   locales,
   pathnames,
   localePrefix

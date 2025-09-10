@@ -6,7 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import { cookies } from 'next/headers';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CheckCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import { Button } from '@/components/ui/button';
 
 type Props = {
@@ -24,10 +24,12 @@ export default async function VotePage({ params }: Props) {
   const cookieStore = cookies();
   const hasVoted = cookieStore.get(`voted-${params.pollId}`);
 
+  // Fetch recipe details for displaying results, regardless of whether the user has voted
+  const recipeDetailsPromises = poll.recipeIds.map(id => getRecipe(id));
+  const recipes = (await Promise.all(recipeDetailsPromises)).filter((r): r is MealieRecipeSummary => r !== null);
+
   if (hasVoted) {
     const totalVotes = Object.values(poll.votes).reduce((sum, v) => sum + v, 0);
-    const recipeDetailsPromises = poll.recipeIds.map(id => getRecipe(id));
-    const recipes = (await Promise.all(recipeDetailsPromises)).filter((r): r is MealieRecipeSummary => r !== null);
 
     return (
         <div className="max-w-2xl mx-auto text-center py-10">
@@ -61,9 +63,6 @@ export default async function VotePage({ params }: Props) {
         </div>
     )
   }
-
-  const recipeDetailsPromises = poll.recipeIds.map(id => getRecipe(id));
-  const recipes = (await Promise.all(recipeDetailsPromises)).filter((r): r is MealieRecipeSummary => r !== null);
   
   if (recipes.length === 0) {
       return (

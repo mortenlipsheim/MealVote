@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useTransition } from 'react';
 import { useTranslations } from 'next-intl';
-import { useFormatter } from 'next-intl';
+import { useFormatter, useLocale } from 'next-intl';
 import { MealieCategory, MealieRecipeSummary } from '@/lib/mealie';
 import { Poll } from '@/lib/polls';
 import { getRecipesAction, createPollAction } from '../actions';
@@ -13,7 +13,7 @@ import RecipeCard from '@/components/recipes/RecipeCard';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Clipboard, ExternalLink, Loader2, Info, ChevronDown } from 'lucide-react';
-import Link from 'next/link';
+import { Link, usePathname } from '@/navigation';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 
 type AdminDashboardProps = {
@@ -24,6 +24,8 @@ type AdminDashboardProps = {
 export default function AdminDashboard({ initialCategories, initialPolls }: AdminDashboardProps) {
   const t = useTranslations('AdminPage');
   const format = useFormatter();
+  const locale = useLocale();
+  const pathname = usePathname();
   const { toast } = useToast();
 
   const [recipes, setRecipes] = useState<MealieRecipeSummary[]>([]);
@@ -81,7 +83,8 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
       try {
         const newPoll = await createPollAction(selectedRecipes.map(r => r.id));
         setPolls(prev => [newPoll, ...prev]);
-        setNewPollUrl(`${window.location.origin}/vote/${newPoll.id}`);
+        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
+        setNewPollUrl(`${siteUrl}/${locale}/vote/${newPoll.id}`);
         setSelectedRecipes([]);
         toast({
           title: t('pollCreated'),
