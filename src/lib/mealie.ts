@@ -83,7 +83,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/api/recipe-categories');
+    const data = await mealieFetch('/api/recipe-categories?perPage=999');
     return data.items.map((item: any) => ({
         id: item.id,
         name: item.name,
