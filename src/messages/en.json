@@ -19,6 +19,7 @@
     "filterByCategory": "Filter by category",
     "allCategories": "All Categories",
     "noRecipes": "No recipes found. Check your Mealie connection or filters.",
+    "noCategories": "No categories found",
     "loadingRecipes": "Loading recipes...",
     "selectedTitle": "Selected Recipes",
     "clearSelection": "Clear",

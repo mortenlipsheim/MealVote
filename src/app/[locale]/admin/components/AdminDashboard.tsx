@@ -8,13 +8,13 @@ import { Poll } from '@/lib/polls';
 import { getRecipesAction, createPollAction } from '../actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import RecipeCard from '@/components/recipes/RecipeCard';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Clipboard, ExternalLink, Loader2, Info } from 'lucide-react';
+import { Clipboard, ExternalLink, Loader2, Info, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 
 type AdminDashboardProps = {
   initialCategories: MealieCategory[];
@@ -29,19 +29,23 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
   const [recipes, setRecipes] = useState<MealieRecipeSummary[]>([]);
   const [selectedRecipes, setSelectedRecipes] = useState<MealieRecipeSummary[]>([]);
   const [polls, setPolls] = useState<Poll[]>(initialPolls);
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [newPollUrl, setNewPollUrl] = useState('');
   
   const [isFetchingRecipes, startFetchingRecipes] = useTransition();
   const [isCreatingPoll, startCreatingPoll] = useTransition();
 
   useEffect(() => {
-    fetchRecipes('all');
+    fetchRecipes();
   }, []);
 
-  const fetchRecipes = (category: string) => {
+  useEffect(() => {
+    fetchRecipes();
+  }, [selectedCategories]);
+
+  const fetchRecipes = () => {
     startFetchingRecipes(async () => {
-      const result = await getRecipesAction(category);
+      const result = await getRecipesAction(selectedCategories);
       if ('error' in result) {
         toast({
             variant: "destructive",
@@ -54,10 +58,13 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
       }
     });
   };
-
-  const handleCategoryChange = (categorySlug: string) => {
-    setSelectedCategory(categorySlug);
-    fetchRecipes(categorySlug);
+  
+  const handleCategorySelection = (categorySlug: string) => {
+    setSelectedCategories(prev =>
+      prev.includes(categorySlug)
+        ? prev.filter(slug => slug !== categorySlug)
+        : [...prev, categorySlug]
+    );
   };
 
   const toggleRecipeSelection = (recipe: MealieRecipeSummary) => {
@@ -94,6 +101,17 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
     toast({ description: t('copied') });
   };
   
+  const getCategoryFilterLabel = () => {
+    if (selectedCategories.length === 0) {
+      return t('filterByCategory');
+    }
+    if (selectedCategories.length === 1) {
+      const cat = initialCategories.find(c => c.slug === selectedCategories[0]);
+      return cat?.name ?? t('filterByCategory');
+    }
+    return `${selectedCategories.length} categories selected`;
+  }
+
   return (
     <div className="space-y-8">
       <Card>
@@ -102,17 +120,29 @@ export default function AdminDashboard({ initialCategories, initialPolls }: Admi
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="flex flex-col sm:flex-row gap-4">
-            <Select onValueChange={handleCategoryChange} defaultValue="all">
-              <SelectTrigger className="w-full sm:w-[280px]">
-                <SelectValue placeholder={t('filterByCategory')} />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">{t('allCategories')}</SelectItem>
-                {initialCategories.map(cat => (
-                  <SelectItem key={cat.id} value={cat.slug}>{cat.name}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="w-full sm:w-[280px] justify-between">
+                  <span>{getCategoryFilterLabel()}</span>
+                  <ChevronDown className="h-4 w-4 opacity-50" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[280px]">
+                <DropdownMenuLabel>{t('filterByCategory')}</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {initialCategories.length > 0 ? initialCategories.map(cat => (
+                  <DropdownMenuCheckboxItem
+                    key={cat.id}
+                    checked={selectedCategories.includes(cat.slug)}
+                    onSelect={(e) => e.preventDefault()}
+                    onCheckedChange={() => handleCategorySelection(cat.slug)}
+                  >
+                    {cat.name}
+                  </DropdownMenuCheckboxItem>
+                )) : <DropdownMenuLabel className="font-normal text-muted-foreground">{t('noCategories')}</DropdownMenuLabel> }
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             {selectedRecipes.length > 0 && (
               <div className="flex-grow flex items-center justify-between bg-primary/10 p-2 rounded-lg">
                  <p className="text-sm font-medium">{t('selectedTitle')}: {selectedRecipes.length}</p>

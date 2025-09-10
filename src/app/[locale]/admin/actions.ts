@@ -4,9 +4,9 @@ import { getRecipes } from '@/lib/mealie';
 import { createPoll } from '@/lib/polls';
 import { revalidatePath } from 'next/cache';
 
-export async function getRecipesAction(category?: string) {
+export async function getRecipesAction(categories?: string[]) {
   try {
-    return await getRecipes({ category: category === 'all' ? undefined : category });
+    return await getRecipes({ categories: categories && categories.length > 0 ? categories : undefined });
   } catch (error) {
     if (error instanceof Error) {
         return { error: error.message };

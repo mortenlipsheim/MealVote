@@ -1,4 +1,3 @@
-
 const MEALIE_URL = process.env.MEALIE_API_URL;
 const MEALIE_TOKEN = process.env.MEALIE_API_TOKEN;
 
@@ -19,20 +18,18 @@ export interface MealieCategory {
   slug: string;
 }
 
-// Consistently construct the base URL for all API calls
-const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}` : '';
-
+const MEALIE_API_BASE_URL = MEALIE_URL ? `${MEALIE_URL.replace(/\/$/, '')}/api` : '';
 
 async function mealieFetch(endpoint: string) {
   if (!MEALIE_API_BASE_URL || !MEALIE_TOKEN) {
     if (process.env.NODE_ENV === 'development') {
       console.warn('Mealie API URL or Token is not configured. Please check your .env.local file.');
+      // Return a structure that looks like the API response for `items`
       return { items: [] }; 
     }
     throw new Error('Mealie API URL or Token is not configured in .env.local');
   }
 
-  // Construct the full URL, ensuring no double slashes
   const url = `${MEALIE_API_BASE_URL}${endpoint}`;
 
   const res = await fetch(url, {
@@ -52,19 +49,18 @@ async function mealieFetch(endpoint: string) {
 }
 
 function getImageUrl(recipeId: string): string {
-    if (!MEALIE_API_BASE_URL || !recipeId) {
-        // Return a placeholder if the URL or filename is missing
+    if (!MEALIE_URL || !recipeId) {
         return 'https://placehold.co/600x400?text=No+Image';
     }
-    // The imagePath from the API needs to be appended to the media endpoint
-    return `${MEALIE_API_BASE_URL}/api/media/recipes/${recipeId}/images/original.webp`;
+    return `${MEALIE_URL.replace(/\/$/, '')}/api/media/recipes/${recipeId}/images/original.webp`;
 }
 
-export async function getRecipes(options?: { category?: string }): Promise<MealieRecipeSummary[]> {
+export async function getRecipes(options?: { categories?: string[] }): Promise<MealieRecipeSummary[]> {
   try {
-    let endpoint = '/api/recipes?perPage=999';
-    if (options?.category) {
-      endpoint += `&filter[categories.slug]=${options.category}`;
+    let endpoint = '/recipes?perPage=999';
+    if (options?.categories && options.categories.length > 0) {
+      const categoryFilter = options.categories.map(slug => `&filter[categories.slug]=${slug}`).join('');
+      endpoint += categoryFilter;
     }
     const data = await mealieFetch(endpoint);
     return data.items.map((item: any) => ({
@@ -83,7 +79,7 @@ export async function getRecipes(options?: { category?: string }): Promise<Meali
 
 export async function getCategories(): Promise<MealieCategory[]> {
   try {
-    const data = await mealieFetch('/api/organizers/categories?perPage=999');
+    const data = await mealieFetch('/organizers/categories?perPage=999');
     return data.items.map((item: any) => ({
         id: item.id,
         name: item.name,
@@ -97,7 +93,7 @@ export async function getCategories(): Promise<MealieCategory[]> {
 
 export async function getRecipe(id: string): Promise<MealieRecipe | null> {
     try {
-        const item = await mealieFetch(`/api/recipes/${id}`);
+        const item = await mealieFetch(`/recipes/${id}`);
         if (!item) return null;
         return {
           id: item.id,

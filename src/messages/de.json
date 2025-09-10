@@ -19,6 +19,7 @@
     "filterByCategory": "Nach Kategorie filtern",
     "allCategories": "Alle Kategorien",
     "noRecipes": "Keine Rezepte gefunden. Überprüfe deine Mealie-Verbindung oder Filter.",
+    "noCategories": "Keine Kategorien gefunden",
     "loadingRecipes": "Lade Rezepte...",
     "selectedTitle": "Ausgewählte Rezepte",
     "clearSelection": "Löschen",
