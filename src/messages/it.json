@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Decidete il vostro prossimo pasto, insieme.",
+    "description": "Benvenuti su MealVote, il modo più semplice per far votare i vostri ospiti su cosa dovreste cucinare. Create un sondaggio, condividete il link e vedete i risultati.",
+    "cta": "Vai alla dashboard di amministrazione"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Creato con ❤️ per pasti felici."
+  },
+  "AdminPage": {
+    "title": "Dashboard di amministrazione",
+    "description": "Crea e gestisci i tuoi sondaggi sui pasti.",
+    "selectRecipes": "Seleziona ricette",
+    "filterByCategory": "Filtra per categoria",
+    "allCategories": "Tutte le categorie",
+    "noRecipes": "Nessuna ricetta trovata. Controlla la tua connessione a Mealie o i filtri.",
+    "noCategories": "Nessuna categoria trovata",
+    "loadingRecipes": "Caricamento ricette...",
+    "selectedTitle": "Ricette selezionate",
+    "clearSelection": "Pulisci",
+    "createPoll": "Crea sondaggio con {count} ricette",
+    "creatingPoll": "Creazione...",
+    "pollCreated": "Sondaggio creato con successo!",
+    "pollLink": "Condividi questo link con i tuoi ospiti:",
+    "copyLink": "Copia link",
+    "copied": "Copiato!",
+    "existingPolls": "Sondaggi esistenti",
+    "noPolls": "Nessun sondaggio ancora creato.",
+    "poll": "Sondaggio",
+    "results": "Risultati",
+    "votes": "voti",
+    "createdAt": "Creato il {date}"
+  },
+  "VotePage": {
+    "title": "Vota per il tuo piatto preferito!",
+    "description": "L'ospite vuole sapere cosa ti piacerebbe mangiare. Esprimi il tuo voto qui sotto.",
+    "submitVote": "Invia voto",
+    "submitting": "Invio...",
+    "voteSubmitted": "Grazie per aver votato!",
+    "alreadyVoted": "Hai già votato a questo sondaggio.",
+    "pollNotFound": "Questo sondaggio non è stato trovato.",
+    "selectOption": "Seleziona un'opzione per votare."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Decidid vuestra próxima comida, juntos.",
+    "description": "Bienvenido a MealVote, la forma más fácil de dejar que tus invitados voten sobre qué deberías cocinar a continuación. Crea una encuesta, comparte el enlace y mira los resultados.",
+    "cta": "Ir al panel de administración"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Hecho con ❤️ para comidas felices."
+  },
+  "AdminPage": {
+    "title": "Panel de administración",
+    "description": "Crea y gestiona tus encuestas de comidas.",
+    "selectRecipes": "Seleccionar recetas",
+    "filterByCategory": "Filtrar por categoría",
+    "allCategories": "Todas las categorías",
+    "noRecipes": "No se encontraron recetas. Comprueba tu conexión a Mealie o los filtros.",
+    "noCategories": "No se encontraron categorías",
+    "loadingRecipes": "Cargando recetas...",
+    "selectedTitle": "Recetas seleccionadas",
+    "clearSelection": "Limpiar",
+    "createPoll": "Crear encuesta con {count} recetas",
+    "creatingPoll": "Creando...",
+    "pollCreated": "¡Encuesta creada con éxito!",
+    "pollLink": "Comparte este enlace con tus invitados:",
+    "copyLink": "Copiar enlace",
+    "copied": "¡Copiado!",
+    "existingPolls": "Encuestas existentes",
+    "noPolls": "Aún no se han creado encuestas.",
+    "poll": "Encuesta",
+    "results": "Resultados",
+    "votes": "votos",
+    "createdAt": "Creado el {date}"
+  },
+  "VotePage": {
+    "title": "¡Vota por tu comida favorita!",
+    "description": "El anfitrión quiere saber qué te gustaría comer. Emite tu voto a continuación.",
+    "submitVote": "Enviar voto",
+    "submitting": "Enviando...",
+    "voteSubmitted": "¡Gracias por votar!",
+    "alreadyVoted": "Ya has votado en esta encuesta.",
+    "pollNotFound": "No se pudo encontrar esta encuesta.",
+    "selectOption": "Por favor, selecciona una opción para votar."
+  }
+}

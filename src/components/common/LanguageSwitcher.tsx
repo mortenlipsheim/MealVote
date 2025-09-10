@@ -33,6 +33,14 @@ export default function LanguageSwitcher() {
       <SelectContent>
         <SelectItem value="en">English</SelectItem>
         <SelectItem value="de">Deutsch</SelectItem>
+        <SelectItem value="fr">Français</SelectItem>
+        <SelectItem value="es">Español</SelectItem>
+        <SelectItem value="it">Italiano</SelectItem>
+        <SelectItem value="nl">Nederlands</SelectItem>
+        <SelectItem value="no">Norsk</SelectItem>
+        <SelectItem value="sv">Svenska</SelectItem>
+        <SelectItem value="da">Dansk</SelectItem>
+        <SelectItem value="fi">Suomi</SelectItem>
       </SelectContent>
     </Select>
   );

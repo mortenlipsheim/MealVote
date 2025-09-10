@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Beslis samen over je volgende maaltijd.",
+    "description": "Welkom bij MealVote, de eenvoudigste manier om je gasten te laten stemmen over wat je hierna moet koken. Maak een peiling, deel de link en bekijk de resultaten.",
+    "cta": "Ga naar het beheerdersdashboard"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Beheerder"
+  },
+  "Footer": {
+    "text": "Met ❤️ gemaakt voor vrolijke maaltijden."
+  },
+  "AdminPage": {
+    "title": "Beheerdersdashboard",
+    "description": "Maak en beheer je maaltijdpeilingen.",
+    "selectRecipes": "Selecteer recepten",
+    "filterByCategory": "Filter op categorie",
+    "allCategories": "Alle categorieën",
+    "noRecipes": "Geen recepten gevonden. Controleer je Mealie-verbinding of filters.",
+    "noCategories": "Geen categorieën gevonden",
+    "loadingRecipes": "Recepten laden...",
+    "selectedTitle": "Geselecteerde recepten",
+    "clearSelection": "Wissen",
+    "createPoll": "Peiling maken met {count} recepten",
+    "creatingPoll": "Maken...",
+    "pollCreated": "Peiling succesvol aangemaakt!",
+    "pollLink": "Deel deze link met je gasten:",
+    "copyLink": "Link kopiëren",
+    "copied": "Gekopieerd!",
+    "existingPolls": "Bestaande peilingen",
+    "noPolls": "Nog geen peilingen gemaakt.",
+    "poll": "Peiling",
+    "results": "Resultaten",
+    "votes": "stemmen",
+    "createdAt": "Gemaakt op {date}"
+  },
+  "VotePage": {
+    "title": "Stem op je favoriete maaltijd!",
+    "description": "De gastheer wil weten wat je graag zou willen eten. Breng hieronder je stem uit.",
+    "submitVote": "Stem uitbrengen",
+    "submitting": "Verzenden...",
+    "voteSubmitted": "Bedankt voor het stemmen!",
+    "alreadyVoted": "Je hebt al gestemd in deze peiling.",
+    "pollNotFound": "Deze peiling kon niet worden gevonden.",
+    "selectOption": "Selecteer een optie om te stemmen."
+  }
+}

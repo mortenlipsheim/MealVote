@@ -3,7 +3,7 @@ import {
   Pathnames
 } from 'next-intl/navigation';
  
-export const locales = ['en', 'de'] as const;
+export const locales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'no', 'sv', 'da', 'fi'] as const;
 export const localePrefix = 'always'; // Default
  
 // The `pathnames` object holds pairs of internal
@@ -18,7 +18,15 @@ export const pathnames = {
   // specify each external path per locale.
   '/vote/[pollId]': {
     en: '/vote/[pollId]',
-    de: '/abstimmen/[pollId]'
+    de: '/abstimmen/[pollId]',
+    fr: '/voter/[pollId]',
+    es: '/votar/[pollId]',
+    it: '/votare/[pollId]',
+    nl: '/stemmen/[pollId]',
+    no: '/stemme/[pollId]',
+    sv: '/rosta/[pollId]',
+    da: '/stemme/[pollId]',
+    fi: '/aanesta/[pollId]'
   }
 } satisfies Pathnames<typeof locales>;
  

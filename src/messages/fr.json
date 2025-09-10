@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Décidez de votre prochain repas, ensemble.",
+    "description": "Bienvenue sur MealVote, le moyen le plus simple de laisser vos invités voter pour ce que vous devriez cuisiner ensuite. Créez un sondage, partagez le lien et consultez les résultats.",
+    "cta": "Aller au tableau de bord d'administration"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Créé avec ❤️ pour des repas heureux."
+  },
+  "AdminPage": {
+    "title": "Tableau de bord d'administration",
+    "description": "Créez et gérez vos sondages de repas.",
+    "selectRecipes": "Sélectionner des recettes",
+    "filterByCategory": "Filtrer par catégorie",
+    "allCategories": "Toutes les catégories",
+    "noRecipes": "Aucune recette trouvée. Vérifiez votre connexion Mealie ou vos filtres.",
+    "noCategories": "Aucune catégorie trouvée",
+    "loadingRecipes": "Chargement des recettes...",
+    "selectedTitle": "Recettes sélectionnées",
+    "clearSelection": "Effacer",
+    "createPoll": "Créer un sondage avec {count} recettes",
+    "creatingPoll": "Création en cours...",
+    "pollCreated": "Sondage créé avec succès !",
+    "pollLink": "Partagez ce lien avec vos invités :",
+    "copyLink": "Copier le lien",
+    "copied": "Copié !",
+    "existingPolls": "Sondages existants",
+    "noPolls": "Aucun sondage créé pour l'instant.",
+    "poll": "Sondage",
+    "results": "Résultats",
+    "votes": "votes",
+    "createdAt": "Créé le {date}"
+  },
+  "VotePage": {
+    "title": "Votez pour votre plat préféré !",
+    "description": "L'hôte veut savoir ce que vous aimeriez manger. Votez ci-dessous.",
+    "submitVote": "Soumettre le vote",
+    "submitting": "Soumission...",
+    "voteSubmitted": "Merci d'avoir voté !",
+    "alreadyVoted": "Vous avez déjà voté à ce sondage.",
+    "pollNotFound": "Ce sondage n'a pas pu être trouvé.",
+    "selectOption": "Veuillez sélectionner une option pour voter."
+  }
+}

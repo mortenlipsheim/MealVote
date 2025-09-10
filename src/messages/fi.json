@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Päättäkää seuraava aterianne yhdessä.",
+    "description": "Tervetuloa MealVoteen, helpoin tapa antaa vieraidesi äänestää, mitä sinun pitäisi laittaa seuraavaksi. Luo kysely, jaa linkki ja katso tulokset.",
+    "cta": "Siirry hallintapaneeliin"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Hallinta"
+  },
+  "Footer": {
+    "text": "Rakennettu ❤️:llä onnellisia aterioita varten."
+  },
+  "AdminPage": {
+    "title": "Hallintapaneeli",
+    "description": "Luo ja hallinnoi ateriakyselyitäsi.",
+    "selectRecipes": "Valitse reseptejä",
+    "filterByCategory": "Suodata luokan mukaan",
+    "allCategories": "Kaikki luokat",
+    "noRecipes": "Reseptejä ei löytynyt. Tarkista Mealie-yhteytesi tai suodattimet.",
+    "noCategories": "Luokkia ei löytynyt",
+    "loadingRecipes": "Ladataan reseptejä...",
+    "selectedTitle": "Valitut reseptit",
+    "clearSelection": "Tyhjennä",
+    "createPoll": "Luo kysely {count} reseptillä",
+    "creatingPoll": "Luodaan...",
+    "pollCreated": "Kysely luotu onnistuneesti!",
+    "pollLink": "Jaa tämä linkki vieraillesi:",
+    "copyLink": "Kopioi linkki",
+    "copied": "Kopioitu!",
+    "existingPolls": "Olemassa olevat kyselyt",
+    "noPolls": "Kyselyitä ei ole vielä luotu.",
+    "poll": "Kysely",
+    "results": "Tulokset",
+    "votes": "ääntä",
+    "createdAt": "Luotu {date}"
+  },
+  "VotePage": {
+    "title": "Äänestä suosikkiateriaasi!",
+    "description": "Isäntä haluaa tietää, mitä haluaisit syödä. Anna äänesi alla.",
+    "submitVote": "Lähetä ääni",
+    "submitting": "Lähetetään...",
+    "voteSubmitted": "Kiitos äänestyksestä!",
+    "alreadyVoted": "Olet jo äänestänyt tässä kyselyssä.",
+    "pollNotFound": "Tätä kyselyä ei löytynyt.",
+    "selectOption": "Valitse vaihtoehto äänestääksesi."
+  }
+}

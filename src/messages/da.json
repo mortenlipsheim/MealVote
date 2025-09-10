@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Beslut jeres næste måltid, sammen.",
+    "description": "Velkommen til MealVote, den nemmeste måde at lade dine gæster stemme om, hvad du skal lave næste gang. Opret en afstemning, del linket og se resultaterne.",
+    "cta": "Gå til admin-dashboard"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Bygget med ❤️ for glade måltider."
+  },
+  "AdminPage": {
+    "title": "Admin-dashboard",
+    "description": "Opret og administrer dine måltidsafstemninger.",
+    "selectRecipes": "Vælg opskrifter",
+    "filterByCategory": "Filtrer efter kategori",
+    "allCategories": "Alle kategorier",
+    "noRecipes": "Ingen opskrifter fundet. Tjek din Mealie-forbindelse eller filtre.",
+    "noCategories": "Ingen kategorier fundet",
+    "loadingRecipes": "Indlæser opskrifter...",
+    "selectedTitle": "Valgte opskrifter",
+    "clearSelection": "Ryd",
+    "createPoll": "Opret afstemning med {count} opskrifter",
+    "creatingPoll": "Opretter...",
+    "pollCreated": "Afstemning oprettet!",
+    "pollLink": "Del dette link med dine gæster:",
+    "copyLink": "Kopier link",
+    "copied": "Kopieret!",
+    "existingPolls": "Eksisterende afstemninger",
+    "noPolls": "Ingen afstemninger oprettet endnu.",
+    "poll": "Afstemning",
+    "results": "Resultater",
+    "votes": "stemmer",
+    "createdAt": "Oprettet den {date}"
+  },
+  "VotePage": {
+    "title": "Stem på din yndlingsret!",
+    "description": "Værten vil gerne vide, hvad du har lyst til at spise. Afgiv din stemme nedenfor.",
+    "submitVote": "Send stemme",
+    "submitting": "Sender...",
+    "voteSubmitted": "Tak fordi du stemte!",
+    "alreadyVoted": "Du har allerede stemt i denne afstemning.",
+    "pollNotFound": "Denne afstemning kunne ikke findes.",
+    "selectOption": "Vælg venligst en mulighed for at stemme."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "HomePage": {
+    "title": "MealVote",
+    "subtitle": "Bestäm er nästa måltid, tillsammans.",
+    "description": "Välkommen till MealVote, det enklaste sättet att låta dina gäster rösta på vad du ska laga härnäst. Skapa en omröstning, dela länken och se resultaten.",
+    "cta": "Gå till adminpanelen"
+  },
+  "Header": {
+    "title": "MealVote",
+    "adminLink": "Admin"
+  },
+  "Footer": {
+    "text": "Byggd med ❤️ för glada måltider."
+  },
+  "AdminPage": {
+    "title": "Adminpanel",
+    "description": "Skapa och hantera dina måltidsomröstningar.",
+    "selectRecipes": "Välj recept",
+    "filterByCategory": "Filtrera efter kategori",
+    "allCategories": "Alla kategorier",
+    "noRecipes": "Inga recept hittades. Kontrollera din Mealie-anslutning eller filter.",
+    "noCategories": "Inga kategorier hittades",
+    "loadingRecipes": "Laddar recept...",
+    "selectedTitle": "Valda recept",
+    "clearSelection": "Rensa",
+    "createPoll": "Skapa omröstning med {count} recept",
+    "creatingPoll": "Skapar...",
+    "pollCreated": "Omröstning skapad!",
+    "pollLink": "Dela den här länken med dina gäster:",
+    "copyLink": "Kopiera länk",
+    "copied": "Kopierad!",
+    "existingPolls": "Befintliga omröstningar",
+    "noPolls": "Inga omröstningar skapade än.",
+    "poll": "Omröstning",
+    "results": "Resultat",
+    "votes": "röster",
+    "createdAt": "Skapad den {date}"
+  },
+  "VotePage": {
+    "title": "Rösta på din favoritmåltid!",
+    "description": "Värden vill veta vad du skulle vilja äta. Lägg din röst nedan.",
+    "submitVote": "Skicka röst",
+    "submitting": "Skickar...",
+    "voteSubmitted": "Tack för att du röstade!",
+    "alreadyVoted": "Du har redan röstat i den här omröstningen.",
+    "pollNotFound": "Denna omröstning kunde inte hittas.",
+    "selectOption": "Välj ett alternativ att rösta på."
+  }
+}
