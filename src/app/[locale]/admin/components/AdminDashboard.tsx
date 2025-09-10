@@ -13,6 +13,7 @@ import RecipeCard from '@/components/recipes/RecipeCard';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Clipboard, Loader2, Info, ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type AdminDashboardProps = {
   initialCategories: MealieCategory[];
@@ -124,16 +125,18 @@ export default function AdminDashboard({ initialCategories }: AdminDashboardProp
               <DropdownMenuContent className="w-[280px]">
                 <DropdownMenuLabel>{t('filterByCategory')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                {initialCategories.length > 0 ? initialCategories.map(cat => (
-                  <DropdownMenuCheckboxItem
-                    key={cat.id}
-                    checked={selectedCategories.includes(cat.slug)}
-                    onSelect={(e) => e.preventDefault()}
-                    onCheckedChange={() => handleCategorySelection(cat.slug)}
-                  >
-                    {cat.name}
-                  </DropdownMenuCheckboxItem>
-                )) : <DropdownMenuLabel className="font-normal text-muted-foreground">{t('noCategories')}</DropdownMenuLabel> }
+                 <ScrollArea className="h-72">
+                    {initialCategories.length > 0 ? initialCategories.map(cat => (
+                    <DropdownMenuCheckboxItem
+                        key={cat.id}
+                        checked={selectedCategories.includes(cat.slug)}
+                        onSelect={(e) => e.preventDefault()}
+                        onCheckedChange={() => handleCategorySelection(cat.slug)}
+                    >
+                        {cat.name}
+                    </DropdownMenuCheckboxItem>
+                    )) : <DropdownMenuLabel className="font-normal text-muted-foreground">{t('noCategories')}</DropdownMenuLabel> }
+                </ScrollArea>
               </DropdownMenuContent>
             </DropdownMenu>
             
